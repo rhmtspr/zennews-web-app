@@ -1,0 +1,43 @@
+{% extends "dashboard/base.html" %} {% block content %}
+{% load static %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <form method="POST" class="form-horizontal" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-header">
+            <h4 class="card-title">{{ title }}</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Title</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.judul }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Content</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.isi }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Category</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.kategori }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Thumbnail</label>
+                <div class="col-sm-10">{{ forms.thumbnail }}</div>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <button class="btn btn-success">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript", src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+{% endblock js %}
