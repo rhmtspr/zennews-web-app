@@ -30,7 +30,7 @@ class CommentForm(forms.ModelForm):
         widgets = {
             "content": forms.Textarea(
                 attrs={
-                    "class": "form-control"
+                    "class": "form-control comment-form"
                 }
             )
         }

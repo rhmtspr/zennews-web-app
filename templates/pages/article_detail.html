@@ -47,17 +47,21 @@
                       <div class="form-group">
                         <label for="content"></label>
                         {{ form.content }}
-                      </div>
-                      <button class="btn btn-primary" type="submit">Add Comments</button>
-                    </form>
+                        </div>
+                      {% if request.user.is_authenticated %}
+                        <button class="btn btn-primary" type="submit">Add Comments</button>
+                        {% else %}
+                        <button class="btn btn-secondary" type="submit" disabled>Add Comments</button>
+                      {% endif %}
+                      </form>
                     <h4>Comments</h4>
                     {% if comments %}
-                    <ul>
+                    <ul class="comment-list">
                       {% for comment in comments %}
                       <li>
-                        <p>{{ comment.user.username }}</p>
+                        <p class="comment_user">{{ comment.user.username }}</p>
                         <p>{{ comment.content }}</p>
-                        <p>{{ comment.created_date }}</p>
+                        <span>{{ comment.created_date }}</span>
                       </li>
                       {% endfor %}
                     </ul>
