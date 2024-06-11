@@ -1,0 +1,72 @@
+{% extends "pages/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('{% static "halaman/assets/img/bg10.jpg" %}');">
+    
+</div>
+
+<div class="main main-raised">
+    <div class="container">
+        <div class="section section-text">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    {% if article.thumbnail.url %}
+                    <img style="width: 100%;" src="{{ article.thumbnail.url }}" alt="">
+                    {% else %}
+                        <img class="img img-raised" src="{% static 'halaman/assets/img/image_placeholder.jpg' %}" />
+                    {% endif %}
+                    <h3 class="title">{{ article.judul }}</h3>
+                    <p>{{ article.isi|safe }}</p>
+
+                    <blockquote>
+                        <small>
+                        Created by 
+                        {{ article.author }}
+                        </small>
+                    </blockquote>
+                </div>  
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="blog-tags mb-5">
+                                Categories:
+                                <span class="label label-primary">{{ article.kategori }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="content"></label>
+                        {{ form.content }}
+                      </div>
+                      <button class="btn btn-primary" type="submit">Add Comments</button>
+                    </form>
+                    <h4>Comments</h4>
+                    {% if comments %}
+                    <ul>
+                      {% for comment in comments %}
+                      <li>
+                        <p>{{ comment.user.username }}</p>
+                        <p>{{ comment.content }}</p>
+                        <p>{{ comment.created_date }}</p>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No Comments yet</p>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}
