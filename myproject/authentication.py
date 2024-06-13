@@ -6,7 +6,7 @@ def akun_login(request):
     if request.user.is_authenticated:
         return redirect("/")
     
-    template_name = "halaman/login.html"
+    template_name = "pages/login.html"
     message = ""
     
     if request.method == "POST":
@@ -29,7 +29,7 @@ def akun_registrasi(request):
         return redirect("/")
     
     message = ""
-    template_name = "halaman/registrasi.html"
+    template_name = "pages/registrasi.html"
 
     if request.method == "POST":
         username = request.POST.get("username")
@@ -43,16 +43,16 @@ def akun_registrasi(request):
             check_user = User.objects.filter(username=username)
 
             if check_user.count() == 0:
-                user_simpan = User.objects.create(
+                new_user = User.objects.create(
                     username=username,
                     first_name=nama_depan,
                     last_name=nama_belakang,
                     email=email,
-                    is_activate=True
+                    is_active=True
                 )
 
-                user_simpan.set_password(password1)
-                user_simpan.save()
+                new_user.set_password(password1)
+                new_user.save()
                 return redirect("/")
             else:
                 message = "username sudah digunakan"
