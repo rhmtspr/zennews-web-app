@@ -55,9 +55,9 @@ def akun_registrasi(request):
                 new_user.save()
                 return redirect("/")
             else:
-                message = "username sudah digunakan"
+                message = "username has already been taken"
         else:
-            message = "password tidak sama"
+            message = "password isn't matched"
 
     context = {
             "message": message
