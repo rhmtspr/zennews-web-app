@@ -61,7 +61,9 @@
                       <li>
                         <p class="comment_user">{{ comment.user.username }}</p>
                         <p>{{ comment.content }}</p>
-                        <span>{{ comment.created_date }}</span>
+                        <div>
+                          <span>{{ comment.created_date }}</span>
+                        </div>
                       </li>
                       {% endfor %}
                     </ul>

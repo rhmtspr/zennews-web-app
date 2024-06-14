@@ -16,6 +16,11 @@
   margin-bottom: 2rem;
 }
 
+.comment-list div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .comment-list .comment_user {
   font-size: 18px;
   font-weight: bold;

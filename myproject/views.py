@@ -49,7 +49,7 @@ def article_detail(request, slug):
         "title": article.judul,
         "article": article,
         "form": form,
-        "comments": comments
+        "comments": comments,
     }
 
     return render(request, template_name, context)
