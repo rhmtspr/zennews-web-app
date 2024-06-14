@@ -24,7 +24,7 @@
             </li>
             {% for kategori in data_kategori %}
             <li {% if menu_aktif == kategori.nama %} class="active" {% endif %}>
-              <a href="/kategori={{ kategori.nama }}">{{ kategori }}</a>
+              <a href="?kategori={{ kategori.nama }}">{{ kategori }}</a>
             </li>
             {% endfor %}
           </ul>
