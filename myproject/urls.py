@@ -17,8 +17,10 @@ urlpatterns = [
 
     path("api/categories/list", category_api_list),
     path("api/categories/detail/<int:category_id>", category_api_detail),
+    path("api/categories/add", category_api_add),
     path("api/articles/list", article_api_list),
     path("api/articles/detail/<int:article_id>", article_api_detail),
+    path("api/articles/add", article_api_add),
     path("api/authors/list", author_api_list),
     path("api/authors/detail/<int:author_id>", author_api_detail),
 

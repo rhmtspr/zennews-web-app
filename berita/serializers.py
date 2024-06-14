@@ -21,9 +21,13 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ["id", "nama"]
 
 class ArticleSerializer(serializers.ModelSerializer):
-    author = UserSerializer()
-    category = CategorySerializer()
+    kategori = serializers.PrimaryKeyRelatedField(queryset=Kategori.objects.all())
+    author = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+
+    category_detail = CategorySerializer(source="kategori", read_only=True)
+    author_detail = UserSerializer(source="author", read_only=True)
 
     class Meta:
         model = Artikel
-        fields = ["id", "judul", "isi", "kategori", "author", "thumbnail", "slug"]
+        fields = ["id", "judul", "isi", "kategori", "category_detail", "author", "author_detail", "thumbnail", "created_at", "slug"]
+        read_only_fields = ["category_detail", "author_detail"]
