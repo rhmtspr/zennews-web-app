@@ -136,7 +136,7 @@ def artikel_update(request, id_artikel):
             return redirect('/')
 
     if request.method == "POST":
-        forms = ArtikelForm(request.POST, request.FILES, instance=artikel)
+        forms = ArtikelForm(request.POST, request.FILES, instance=artikel_input)
         if forms.is_valid():
             pub = forms.save(commit=False)
             pub.author = request.user
