@@ -31,3 +31,12 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+## Screenshots
+1. Home Page
+
+![home_page_zn](https://github.com/user-attachments/assets/38473801-9510-4834-a792-f7e80c36ae87)
+ 
+3. Dashboard Page
+
+![dashboard_page_zn](https://github.com/user-attachments/assets/acdb2e63-b6fb-4594-8f53-78baf661efe2)
